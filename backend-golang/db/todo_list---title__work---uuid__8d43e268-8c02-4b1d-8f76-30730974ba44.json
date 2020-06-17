@@ -1,0 +1,22 @@
+{
+  "UUID": "8d43e268-8c02-4b1d-8f76-30730974ba44",
+  "Title": "work",
+  "Entries": [
+    {
+      "UUID": "f6ff2791-f20e-4767-81a7-b80e061c568e",
+      "Text": "check email",
+      "Owner": {
+        "UUID": "id",
+        "Name": "Yoshua"
+      }
+    },
+    {
+      "UUID": "a3bb1653-c024-3734-21f3-ff04e25b3a20",
+      "Text": "refactor code",
+      "Owner": {
+        "UUID": "id",
+        "Name": "Yoshua"
+      }
+    }
+  ]
+}

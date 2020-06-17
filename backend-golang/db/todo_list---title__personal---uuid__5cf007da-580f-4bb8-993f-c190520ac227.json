@@ -1,0 +1,22 @@
+{
+  "UUID": "5cf007da-580f-4bb8-993f-c190520ac227",
+  "Title": "personal",
+  "Entries": [
+    {
+      "UUID": "f6ff2791-f20e-4767-81a7-b80e061c568e",
+      "Text": "clean up house",
+      "Owner": {
+        "UUID": "id",
+        "Name": "Yoshua"
+      }
+    },
+    {
+      "UUID": "a3bb1653-c024-3734-21f3-ff04e25b3a20",
+      "Text": "eat lunch",
+      "Owner": {
+        "UUID": "id",
+        "Name": "Yoshua"
+      }
+    }
+  ]
+}
