@@ -1,12 +1,12 @@
 package domain
 
+//domain should only depends on other domain entities
+
 import (
 	"fmt"
 
 	"github.com/dotm/clean-architecture/backend-golang/utilities/uuid"
 )
-
-//domain should only depends on other domain entities
 
 //Person is a representation of a real world human.
 //This is equivalent to buyer, seller, player, customer, etc.

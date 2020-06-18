@@ -8,10 +8,12 @@ import (
 	"strings"
 )
 
+//FileStorageDatabase ..
 type FileStorageDatabase struct {
 	StorageDirectory string
 }
 
+//NewFileStorageDatabase ..
 func NewFileStorageDatabase(storageDirectory string) FileStorageDatabase {
 	directoryWithSuffix := filepath.Join(storageDirectory, "db")
 	os.MkdirAll(directoryWithSuffix, os.ModePerm)
@@ -64,6 +66,7 @@ func (database FileStorageDatabase) CreateFile(name string) *os.File {
 	return f
 }
 
+//ReadFromFile ..
 func (database FileStorageDatabase) ReadFromFile(name string) []byte {
 	path := filepath.Join(database.StorageDirectory, name)
 	bytes, err := ioutil.ReadFile(path)
@@ -74,6 +77,7 @@ func (database FileStorageDatabase) ReadFromFile(name string) []byte {
 	return bytes
 }
 
+//CheckIfFileExistWithName ..
 func (database FileStorageDatabase) CheckIfFileExistWithName(filename string) bool {
 	dir := database.StorageDirectory
 	files, err := ioutil.ReadDir(dir)
@@ -89,6 +93,7 @@ func (database FileStorageDatabase) CheckIfFileExistWithName(filename string) bo
 	return false
 }
 
+//GetAllFilePathWithPrefix ..
 func (database FileStorageDatabase) GetAllFilePathWithPrefix(prefix string) ([]string, error) {
 	dir := database.StorageDirectory
 	filesWithPrefix := []string{}
@@ -103,24 +108,4 @@ func (database FileStorageDatabase) GetAllFilePathWithPrefix(prefix string) ([]s
 		}
 	}
 	return filesWithPrefix, nil
-}
-
-func (database FileStorageDatabase) FilterDirs(suffix string) ([]string, error) {
-	dir := database.StorageDirectory
-	files, err := ioutil.ReadDir(dir)
-	if err != nil {
-		return nil, err
-	}
-	res := []string{}
-	for _, f := range files {
-		if !f.IsDir() && strings.HasSuffix(f.Name(), suffix) {
-			res = append(res, filepath.Join(dir, f.Name()))
-		}
-	}
-	return res, nil
-}
-
-func (database FileStorageDatabase) FilterDirsGlob(suffix string) ([]string, error) {
-	dir := database.StorageDirectory
-	return filepath.Glob(filepath.Join(dir, suffix))
 }
